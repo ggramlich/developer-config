@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmarks>
+   <site url="http://download.eclipse.org/technology/dltk/updates-dev/2.0/" selected="true" name="DLTK"/>
+   <site url="http://download.eclipse.org/technology/epp/packages/galileo" selected="true" name="EPP Packages Repository"/>
+   <site url="http://download.eclipse.org/releases/galileo" selected="true" name="Galileo"/>
+   <site url="http://download.eclipse.org/tools/mylyn/update/e3.4/" selected="true" name="Mylyn for Eclipse 3.4 and 3.5"/>
+   <site url="http://openextern.googlecode.com/svn/trunk/openextern_update/" selected="true" name="Open Extern"/>
+   <site url="http://download.eclipse.org/tools/pdt/updates/2.2/interim/" selected="true" name="PDT"/>
+   <site url="http://subclipse.tigris.org/update_1.6.x" selected="true" name="Subclipse"/>
+   <site url="http://download.eclipse.org/eclipse/updates/3.5" selected="true" name="The Eclipse Project Updates"/>
+</bookmarks>
