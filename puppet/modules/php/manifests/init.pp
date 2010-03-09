@@ -12,6 +12,7 @@ class php-dev {
     include php
     include pear::phpunit
     include pear::phing
+    include pear::phpcs
 }
 
 class pear {
@@ -23,6 +24,10 @@ class pear {
 
     class phing {
         channelinstall{"phing/phing": channel => 'pear.phing.info'}
+    }
+
+    class phpcs {
+        install {"PHP_CodeSniffer":}
     }
 
     class upgrade_all {
