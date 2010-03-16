@@ -5,5 +5,6 @@ class monodevelop {
     package { "mono-complete": ensure => installed }
     package { "monodoc-browser": ensure => installed }
     package { "monodoc-http": ensure => installed }
+    package { "nant": ensure => installed }
 }
 
