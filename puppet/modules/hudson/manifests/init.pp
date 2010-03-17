@@ -35,7 +35,6 @@ class hudson {
     package { "hudson":
         ensure => installed,
         require => File["/etc/apt/sources.list"],
-        require => Class["jdk"]
     }
 
     file {"hudson.conf":
