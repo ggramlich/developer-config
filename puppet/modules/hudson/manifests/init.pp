@@ -58,7 +58,7 @@ class hudson {
             }
         }
 
-        install_plugin{["deploy", "jabber", "instant-messaging"]:}
+        install_plugin{["deploy", "jabber", "instant-messaging", "bazaar", "git"]:}
     }
 
     include plugins
