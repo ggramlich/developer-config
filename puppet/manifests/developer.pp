@@ -5,4 +5,5 @@ node default inherits 'developernode' {
     include monodevelop
     include python
     include hudson
+    include ruby
 }

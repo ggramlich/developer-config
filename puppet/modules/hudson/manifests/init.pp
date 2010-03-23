@@ -33,7 +33,7 @@ class hudson {
     }
 
     package { "hudson":
-        ensure => installed,
+        ensure => latest,
         require => File["/etc/apt/sources.list"],
     }
 
@@ -58,7 +58,7 @@ class hudson {
             }
         }
 
-        install_plugin{["deploy", "jabber", "instant-messaging", "bazaar", "git"]:}
+        install_plugin{["deploy", "jabber", "instant-messaging", "bazaar", "git", "copyartifact"]:}
     }
 
     include plugins

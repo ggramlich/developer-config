@@ -8,4 +8,5 @@ import "commodities"
 import "mono"
 import "python"
 import "hudson"
+import "ruby"
 

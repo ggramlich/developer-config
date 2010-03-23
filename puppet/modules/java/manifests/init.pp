@@ -10,6 +10,14 @@ class jdk {
     package { "junit4": ensure => absent }
     package { "libhamcrest-java": ensure => absent }
     package { "ant": ensure => installed }
-}
 
+    file {"junit.jar":
+        path => '/usr/share/ant/lib/junit.jar',
+        source => 'puppet:///java/junit.jar',
+        require => Package["ant"],
+        mode => 0644,
+        owner => "root",
+        group => "root"
+    }
+}
 
