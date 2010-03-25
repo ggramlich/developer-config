@@ -6,5 +6,9 @@ class monodevelop {
     package { "monodoc-browser": ensure => installed }
     package { "monodoc-http": ensure => installed }
     package { "nant": ensure => installed }
+    package { "nunit": ensure => installed }
+    package { "nunit-gui": ensure => installed }
+    package { "nunit-console": ensure => installed }
+    package { "monodevelop-nunit": ensure => installed }
 }
 
