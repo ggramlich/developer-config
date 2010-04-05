@@ -6,4 +6,5 @@ node default inherits 'developernode' {
     include python
     include hudson
     include ruby
+    include pear::php_archive
 }

@@ -6,18 +6,16 @@ class php {
     package { "xsltproc": ensure => installed }
     package { "php5-xsl": ensure => installed }
     package { "libapache2-mod-php5": ensure => installed, require => Class['apache'] }
+    package { "php5-dev": ensure => installed }
 }
 
-class php-dev {
-    include php
+class php-dev inherits php {
     include pear::phpunit
     include pear::phing
     include pear::phpcs
 }
 
 class pear {
-    include php
-
     class phpunit {
         channelinstall{"phpunit": channel => 'pear.phpunit.de', name => 'phpunit/PHPUnit'}
     }
@@ -28,6 +26,10 @@ class pear {
 
     class phpcs {
         install {"PHP_CodeSniffer":}
+    }
+
+    class php_archive {
+        install {"PHP_Archive-alpha":}
     }
 
     class upgrade_all {
@@ -55,10 +57,10 @@ class pear {
     }
 
     define pear_exe($unless = 1) {
-        include php
         exec {"pear_$title":
             command => "pear $name",
-            unless => $unless
+            unless => $unless,
+            require => Class['php']
         }
     }
 
@@ -74,4 +76,23 @@ class pear {
 
 }
 
+class pecl {
+    define install() {
+        pecl_exe {"install $name": unless => "pecl list $name"}
+    }
+
+    define pecl_exe($unless = 1) {
+        exec {"pecl_$title":
+            command => "pecl $name",
+            unless => $unless,
+            require => Class['php']
+        }
+    }
+
+    class phar {
+        package {"libpcre3-dev": ensure => installed}
+        install {"phar":}
+    }
+
+}
 
