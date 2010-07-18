@@ -9,4 +9,5 @@ import "mono"
 import "python"
 import "hudson"
 import "ruby"
+import "mercurial"
 

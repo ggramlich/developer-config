@@ -12,4 +12,5 @@ node 'developernode' inherits 'basenode' {
     include php
     include subversion-tools
     include xclip
+    include mercurial
 }
