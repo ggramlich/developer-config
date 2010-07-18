@@ -1,0 +1,9 @@
+#!/bin/bash
+# run as sudo
+#gem source -a http://gems.github.com/
+gem install jekyll
+
+# add the following line at end of .bashrc
+#export PATH=$PATH:/var/lib/gems/1.8/bin
+
+

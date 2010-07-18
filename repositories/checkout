@@ -1,0 +1,18 @@
+#!/bin/bash
+
+git clone git@github.com:ggramlich/fitnesse
+cd fitnesse
+git remote add upstream git://github.com/unclebob/fitnesse.git
+#git fetch upstream
+#git merge upstream/master
+cd ..
+git clone git@github.com:ggramlich/phpslim
+git clone git@github.com:ggramlich/SlimSpecs
+git clone git@github.com:ggramlich/JsSlim
+git clone git@github.com:ggramlich/ggramlich.github.com
+git clone git@github.com:ggramlich/Sicp-JsSlim.git
+git clone git@github.com:ggramlich/phpslim phpslimdoku
+cd phpslimdoku/
+git checkout -b gh-pages origin/gh-pages
+cd ..
+
