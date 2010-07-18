@@ -16,3 +16,6 @@ cd phpslimdoku/
 git checkout -b gh-pages origin/gh-pages
 cd ..
 
+
+hg clone http://bitbucket.org/solarphp/docs solardocs
+
