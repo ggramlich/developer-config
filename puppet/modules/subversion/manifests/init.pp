@@ -4,5 +4,6 @@ class subversion {
 
 class subversion-tools {
     package { "subversion-tools": ensure => installed }
+    package { "libsvn-java": ensure => installed }
 }
 

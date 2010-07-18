@@ -8,7 +8,7 @@ class hudson {
 
     file {"hudson-key-file":
         path => $hudsonKeyFile,
-        source => 'puppet:///hudson/hudson-ci.org.key',
+        source => 'puppet:///modules/hudson/hudson-ci.org.key',
         require => File["hudson-dir"]
     }
 
@@ -22,7 +22,7 @@ class hudson {
         owner => "root",
         group => "root",
         mode => 0444,
-        content => template("ubuntu/sources.list.erb"),
+        content => template("hudson/sources.list.erb"),
         require => File["hudson-key-file"]
     }
 
@@ -39,7 +39,7 @@ class hudson {
 
     file {"hudson.conf":
         path => "/etc/default/hudson",
-        source => "puppet:///hudson/hudson.conf",
+        source => "puppet:///modules/hudson/hudson.conf",
         owner => "root",
         group => "root",
         mode => 0644,
@@ -50,7 +50,7 @@ class hudson {
         define install_plugin() {
             file {"hudson-plugin $name":
                 path => "/var/lib/hudson/plugins/$name.hpi",
-                source => "puppet:///hudson/plugins/$name.hpi",
+                source => "puppet:///modules/hudson/plugins/$name.hpi",
 	            owner => "hudson",
 	            group => "adm",
                 mode => 0750,

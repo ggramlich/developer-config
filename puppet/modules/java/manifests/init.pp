@@ -13,7 +13,7 @@ class jdk {
 
     file {"junit.jar":
         path => '/usr/share/ant/lib/junit.jar',
-        source => 'puppet:///java/junit.jar',
+        source => 'puppet:///modules/java/junit.jar',
         require => Package["ant"],
         mode => 0644,
         owner => "root",
