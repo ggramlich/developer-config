@@ -16,6 +16,10 @@ cd phpslimdoku/
 git checkout -b gh-pages origin/gh-pages
 cd ..
 
+mkdir solar
+hg clone http://bitbucket.org/solarphp/docs solar/docs
+svn checkout http://svn.solarphp.com/core/trunk/ solar/core
+svn checkout http://svn.solarphp.com/system/trunk/ solar/system
 
-hg clone http://bitbucket.org/solarphp/docs solardocs
+svn checkout http://ruckusing.googlecode.com/svn/trunk/ ruckusing
 
