@@ -10,9 +10,12 @@ class php {
 }
 
 class php-dev inherits php {
+    package { 'php5-xdebug': ensure => installed }
     include pear::phpunit
     include pear::phing
     include pear::phpcs
+    include pear::phpmd
+    include pear::phpcpd
 }
 
 class pear {
@@ -28,6 +31,23 @@ class pear {
         install {"PHP_CodeSniffer":}
     }
 
+    class phpmd {
+        channel_discover{"pear.pdepend.org":}
+        channelinstall{"phpmd": channel => 'pear.phpmd.org',
+            name => 'phpmd/PHP_PMD-alpha',
+            alldeps => true,
+            require => Channel_discover['pear.pdepend.org']
+        }
+    }
+
+    class phpcpd {
+        channel_discover{"components.ez.no":}
+        install {"phpcpd": name => 'phpunit/phpcpd',
+            require => [Class['phpunit'],
+            Channel_discover['components.ez.no']]
+        }
+    }
+
     class php_archive {
         install {"PHP_Archive-alpha":}
     }
@@ -38,22 +58,26 @@ class pear {
         upgrade {"": require => Channel_update[$channels]}
     }
 
-    define channelinstall($channel, $update = false) {
+    define channelinstall($channel, $update = false, $alldeps = false) {
         if ($update) {
             include "upgrade_all"
             channel_discover {$channel: require => Class['upgrade_all'] }
         } else {
             channel_discover {$channel: }
         }
-        install {$name: require => Channel_discover[$channel]}
+        install {$name: require => Channel_discover[$channel], alldeps => $alldeps}
     }
 
     define upgrade() {
         pear_exe {"upgrade $name":}
     }
 
-    define install() {
-        pear_exe {"install $name": unless => "pear list $name"}
+    define install($alldeps = false) {
+        if ($alldeps) {
+            pear_exe {"install --alldeps $name": unless => "pear list $name"}
+        } else {
+            pear_exe {"install $name": unless => "pear list $name"}
+        }
     }
 
     define pear_exe($unless = 1) {
