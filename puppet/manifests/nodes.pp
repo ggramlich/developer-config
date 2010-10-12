@@ -11,6 +11,6 @@ node 'developernode' inherits 'basenode' {
     include mysqldev
     include php
     include subversion-tools
-    include xclip
+    include commodities
     include mercurial
 }
