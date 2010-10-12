@@ -16,6 +16,7 @@ class php-dev inherits php {
     include pear::phpcs
     include pear::phpmd
     include pear::phpcpd
+    include pear::mdb2
 }
 
 class pear {
@@ -50,6 +51,10 @@ class pear {
 
     class php_archive {
         install {"PHP_Archive-alpha":}
+    }
+
+    class mdb2 {
+        install {"MDB2_Driver_mysql": require => Package["mysql-client"]}
     }
 
     class upgrade_all {
