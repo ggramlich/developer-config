@@ -3,6 +3,7 @@ node 'basenode' {
     include subversion
     Exec { path => "/usr/sbin:/usr/bin:/sbin:/bin" }
     include vmwaretools
+    include virtualboxtools
 }
 
 node 'developernode' inherits 'basenode' {

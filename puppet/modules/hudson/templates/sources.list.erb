@@ -44,6 +44,11 @@ deb-src http://de.archive.ubuntu.com/ubuntu/ <%= lsbdistcodename %>-updates mult
 # deb http://archive.canonical.com/ubuntu <%= lsbdistcodename %> partner
 # deb-src http://archive.canonical.com/ubuntu <%= lsbdistcodename %> partner
 
+## This software is not part of Ubuntu, but is offered by third-party
+## developers who want to ship their latest software.
+deb http://extras.ubuntu.com/ubuntu <%= lsbdistcodename %> main
+deb-src http://extras.ubuntu.com/ubuntu <%= lsbdistcodename %> main
+
 deb http://security.ubuntu.com/ubuntu <%= lsbdistcodename %>-security main restricted
 deb-src http://security.ubuntu.com/ubuntu <%= lsbdistcodename %>-security main restricted
 deb http://security.ubuntu.com/ubuntu <%= lsbdistcodename %>-security universe

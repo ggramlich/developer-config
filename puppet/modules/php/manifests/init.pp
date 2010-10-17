@@ -21,6 +21,7 @@ class php-dev inherits php {
 
 class pear {
     class phpunit {
+        channel_discover{"pear.symfony-project.com":}
         channelinstall{"phpunit": channel => 'pear.phpunit.de', name => 'phpunit/PHPUnit'}
     }
 
