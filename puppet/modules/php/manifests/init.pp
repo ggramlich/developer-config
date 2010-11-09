@@ -7,6 +7,7 @@ class php {
     package { "php5-xsl": ensure => installed }
     package { "libapache2-mod-php5": ensure => installed, require => Class['apache'] }
     package { "php5-dev": ensure => installed }
+    package { "php5-sqlite": ensure => installed, require => Class['sqlite'] }
 }
 
 class php-dev inherits php {
@@ -17,6 +18,7 @@ class php-dev inherits php {
     include pear::phpmd
     include pear::phpcpd
     include pear::mdb2
+    include pear::vfsStream
 }
 
 class pear {
@@ -56,6 +58,10 @@ class pear {
 
     class mdb2 {
         install {"MDB2_Driver_mysql": require => Package["mysql-client"]}
+    }
+    
+    class vfsStream {
+        channelinstall{"pat/vfsStream-alpha": channel => 'pear.php-tools.net'}
     }
 
     class upgrade_all {

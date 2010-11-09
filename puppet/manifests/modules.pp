@@ -11,4 +11,5 @@ import "python"
 import "hudson"
 import "ruby"
 import "mercurial"
+import "sqlite"
 

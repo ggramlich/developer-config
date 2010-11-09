@@ -14,4 +14,5 @@ node 'developernode' inherits 'basenode' {
     include subversion-tools
     include commodities
     include mercurial
+    include sqlite
 }
