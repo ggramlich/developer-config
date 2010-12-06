@@ -15,4 +15,5 @@ node 'developernode' inherits 'basenode' {
     include commodities
     include mercurial
     include sqlite
+    include postgresql
 }

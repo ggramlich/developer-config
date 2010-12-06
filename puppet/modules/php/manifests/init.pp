@@ -8,6 +8,7 @@ class php {
     package { "libapache2-mod-php5": ensure => installed, require => Class['apache'] }
     package { "php5-dev": ensure => installed }
     package { "php5-sqlite": ensure => installed, require => Class['sqlite'] }
+    package { "php5-pgsql": ensure => installed, require => Class['postgresql'] }
 }
 
 class php-dev inherits php {
