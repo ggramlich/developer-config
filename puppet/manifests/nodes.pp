@@ -28,3 +28,9 @@ node multilingualdev inherits 'developernode' {
     include commodities::screenkey
 }
 
+node servernode inherits 'basenode' {
+    include git::gitserver
+    include remoteaccess
+    include jenkins
+}
+
