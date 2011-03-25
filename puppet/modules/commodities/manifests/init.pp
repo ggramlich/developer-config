@@ -5,6 +5,7 @@ class commodities {
     package { "nautilus-open-terminal": ensure => installed }
     package { "bzr": ensure => installed }
     package { "python-xlib": ensure => installed }
+    package { "gedit-plugins": ensure => installed }
 
     class keymon {
         file { "/opt/keymon":
