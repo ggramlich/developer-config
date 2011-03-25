@@ -17,3 +17,14 @@ node 'developernode' inherits 'basenode' {
     include sqlite
     include postgresql
 }
+
+node multilingualdev inherits 'developernode' {
+    include php-dev
+    include monodevelop
+    include python
+    include ruby
+    include pear::php_archive
+    include commodities::keymon
+    include commodities::screenkey
+}
+
