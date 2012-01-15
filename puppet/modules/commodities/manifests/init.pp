@@ -6,6 +6,7 @@ class commodities {
     package { "bzr": ensure => installed }
     package { "python-xlib": ensure => installed }
     package { "gedit-plugins": ensure => installed }
+    package { "libssl0.9.8": ensure => installed }
 
     class keymon {
         file { "/opt/keymon":
