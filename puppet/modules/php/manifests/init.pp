@@ -8,8 +8,23 @@ class php {
     package { "php5-curl": ensure => installed }
     package { "libapache2-mod-php5": ensure => installed, require => Class['apache'] }
     package { "php5-dev": ensure => installed }
-    package { "php5-sqlite": ensure => installed, require => Class['sqlite'] }
     package { "php5-pgsql": ensure => installed, require => Class['postgresql'] }
+    include php-sqlite
+}
+
+class php-sqlite {
+    package { "php5-sqlite": ensure => installed, require => Class['sqlite'] }
+
+    file {"php-sqlite.ini":
+        owner => "root",
+        group => "root",
+        mode => 0644,
+        path => "/etc/php5/conf.d/sqlite.ini",
+        source => 'puppet:///modules/php/sqlite.ini',
+        require => Package["php5-sqlite"]
+    }
+
+
 }
 
 class php-dev inherits php {
